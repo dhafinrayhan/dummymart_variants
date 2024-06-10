@@ -5,13 +5,15 @@ import '../ui/bottom_sheets/notice/notice_sheet.dart';
 import '../ui/dialogs/info_alert/info_alert_dialog.dart';
 import '../ui/views/home/home_view.dart';
 import '../ui/views/startup/startup_view.dart';
+import 'package:dummymart/ui/views/products/products_view.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
-    // @stacked-route
+    MaterialRoute(page: ProductsView),
+// @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),
