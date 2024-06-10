@@ -1,9 +1,10 @@
-import 'package:dummymart/app/app.bottomsheets.dart';
-import 'package:dummymart/app/app.dialogs.dart';
-import 'package:dummymart/app/app.locator.dart';
-import 'package:dummymart/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+import '../../../app/app.bottomsheets.dart';
+import '../../../app/app.dialogs.dart';
+import '../../../app/app.locator.dart';
+import '../../common/app_strings.dart';
 
 class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();

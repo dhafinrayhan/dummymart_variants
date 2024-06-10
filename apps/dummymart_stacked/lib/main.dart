@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:dummymart/app/app.bottomsheets.dart';
-import 'package:dummymart/app/app.dialogs.dart';
-import 'package:dummymart/app/app.locator.dart';
-import 'package:dummymart/app/app.router.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+import 'app/app.bottomsheets.dart';
+import 'app/app.dialogs.dart';
+import 'app/app.locator.dart';
+import 'app/app.router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
