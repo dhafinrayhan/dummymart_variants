@@ -4,7 +4,6 @@ import 'package:stacked_services/stacked_services.dart';
 import '../services/api_service.dart';
 import '../ui/bottom_sheets/notice/notice_sheet.dart';
 import '../ui/dialogs/info_alert/info_alert_dialog.dart';
-import '../ui/views/home/home_view.dart';
 import '../ui/views/product/product_view.dart';
 import '../ui/views/products/products_view.dart';
 import '../ui/views/startup/startup_view.dart';
@@ -12,7 +11,6 @@ import '../ui/views/startup/startup_view.dart';
 
 @StackedApp(
   routes: [
-    MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
     MaterialRoute(page: ProductsView),
     MaterialRoute(page: ProductView),
