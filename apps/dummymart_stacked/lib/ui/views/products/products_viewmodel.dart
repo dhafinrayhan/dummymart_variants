@@ -6,18 +6,12 @@ import '../../../app/app.router.dart';
 import '../../../models/product.dart';
 import '../../../services/api_service.dart';
 
-class ProductsViewModel extends BaseViewModel {
+class ProductsViewModel extends FutureViewModel<List<Product>> {
   final _apiService = locator<ApiService>();
   final _navigationService = locator<NavigationService>();
 
-  late List<Product> _products;
-  List<Product> get products => _products;
-
-  Future<void> fetchProducts() {
-    return runBusyFuture(_apiService.fetchProducts().then((products) {
-      _products = products;
-    }));
-  }
+  @override
+  Future<List<Product>> futureToRun() => _apiService.fetchProducts();
 
   void viewProduct(int id) {
     _navigationService.navigateToProductView(id: id);

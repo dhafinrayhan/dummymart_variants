@@ -21,9 +21,9 @@ class ProductsView extends StackedView<ProductsViewModel> {
           : viewModel.hasError
               ? const Center(child: Text('An error occurred'))
               : ListView.builder(
-                  itemCount: viewModel.products.length,
+                  itemCount: viewModel.data!.length,
                   itemBuilder: (_, index) {
-                    final product = viewModel.products[index];
+                    final product = viewModel.data![index];
                     return ListTile(
                       onTap: () => viewModel.viewProduct(product.id),
                       title: Text(product.title),
@@ -40,9 +40,4 @@ class ProductsView extends StackedView<ProductsViewModel> {
     BuildContext context,
   ) =>
       ProductsViewModel();
-
-  @override
-  void onViewModelReady(ProductsViewModel viewModel) {
-    viewModel.fetchProducts();
-  }
 }
