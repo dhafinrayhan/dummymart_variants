@@ -25,7 +25,7 @@ class ProductsView extends StackedView<ProductsViewModel> {
                   itemBuilder: (_, index) {
                     final product = viewModel.products[index];
                     return ListTile(
-                      onTap: () {},
+                      onTap: () => viewModel.viewProduct(product.id),
                       title: Text(product.title),
                       subtitle:
                           product.brand != null ? Text(product.brand!) : null,

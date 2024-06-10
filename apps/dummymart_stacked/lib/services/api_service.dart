@@ -40,4 +40,10 @@ class ApiService {
         .map(Product.fromJson)
         .toList();
   }
+
+  Future<Product> fetchProduct(int id) async {
+    final response = await _httpClient.get('/products/$id');
+
+    return Product.fromJson(response.data as _ResponseData);
+  }
 }
