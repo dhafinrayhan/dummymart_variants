@@ -5,6 +5,7 @@ import 'app/app.bottomsheets.dart';
 import 'app/app.dialogs.dart';
 import 'app/app.locator.dart';
 import 'app/app.router.dart';
+import 'ui/common/ui_helpers.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +20,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final (lightTheme, darkTheme) = createDualThemeData(
+      seedColor: Colors.blue,
+      useMaterial3: true,
+      transformer: (data) => data.copyWith(
+        inputDecorationTheme: const InputDecorationTheme(
+          border: OutlineInputBorder(),
+        ),
+      ),
+    );
+
     return MaterialApp(
       initialRoute: Routes.startupView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
@@ -26,6 +37,8 @@ class MainApp extends StatelessWidget {
       navigatorObservers: [
         StackedService.routeObserver,
       ],
+      theme: lightTheme,
+      darkTheme: darkTheme,
     );
   }
 }
