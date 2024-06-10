@@ -6,6 +6,8 @@
 import 'dart:async' as _i5;
 import 'dart:ui' as _i6;
 
+import 'package:dummymart/models/product.dart' as _i8;
+import 'package:dummymart/services/api_service.dart' as _i7;
 import 'package:flutter/material.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i3;
@@ -669,4 +671,20 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
         ),
         returnValueForMissingStub: null,
       );
+}
+
+/// A class which mocks [ApiService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockApiService extends _i1.Mock implements _i7.ApiService {
+  @override
+  _i5.Future<List<_i8.Product>> fetchProducts() => (super.noSuchMethod(
+        Invocation.method(
+          #fetchProducts,
+          [],
+        ),
+        returnValue: _i5.Future<List<_i8.Product>>.value(<_i8.Product>[]),
+        returnValueForMissingStub:
+            _i5.Future<List<_i8.Product>>.value(<_i8.Product>[]),
+      ) as _i5.Future<List<_i8.Product>>);
 }

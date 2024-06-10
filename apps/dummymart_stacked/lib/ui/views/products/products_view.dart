@@ -13,10 +13,25 @@ class ProductsView extends StackedView<ProductsViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      body: Container(
-        padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+      appBar: AppBar(
+        title: const Text('Products'),
       ),
+      body: viewModel.isBusy
+          ? const Center(child: CircularProgressIndicator())
+          : viewModel.hasError
+              ? const Center(child: Text('An error occurred'))
+              : ListView.builder(
+                  itemCount: viewModel.products.length,
+                  itemBuilder: (_, index) {
+                    final product = viewModel.products[index];
+                    return ListTile(
+                      onTap: () {},
+                      title: Text(product.title),
+                      subtitle:
+                          product.brand != null ? Text(product.brand!) : null,
+                    );
+                  },
+                ),
     );
   }
 
@@ -25,4 +40,9 @@ class ProductsView extends StackedView<ProductsViewModel> {
     BuildContext context,
   ) =>
       ProductsViewModel();
+
+  @override
+  void onViewModelReady(ProductsViewModel viewModel) {
+    viewModel.fetchProducts();
+  }
 }
